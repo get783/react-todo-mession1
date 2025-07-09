@@ -11,7 +11,9 @@ function TodoItem({ todo }) {
                 }}
                 checked={todo.checked}
             />
-            {JSON.stringify(todo.checked)} / {todo.id} / {todo.text}
+            <span style={{ textDecoration: todo.checked ? 'line-through' : 'none' }}>
+                {todo.text}
+            </span>
             <button onClick={() => removeTodo(todo.id)}>X</button>
         </li>
     )
