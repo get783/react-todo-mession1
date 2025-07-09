@@ -3,18 +3,19 @@ import { createContext, useContext, useRef, useState } from 'react'
 const TodoContext = createContext()
 
 export function TodoProvider({ children }) {
-    const lastId = useRef(4)
+    const lastId = useRef(0)
 
-    const [todos, setTodos] = useState([
-        { id: 3, text: '공부하기', checked: true },
-        { id: 2, text: '코딩하기', checked: false },
-        { id: 1, text: '운동하기', checked: true },
-    ])
+    const [todos, setTodos] = useState([])
+
+    const createTodo = (text) => ({
+        id: lastId.current++,
+        text,
+        checked: false
+    })
 
     const addTodo = (text) => {
-        const todo = { id: lastId.current, text, checked: false }
+        const todo = createTodo(text);
         setTodos([todo, ...todos])
-        lastId.current++
     }
 
     const removeTodo = (seletedId) => {
