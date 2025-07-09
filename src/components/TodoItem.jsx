@@ -11,7 +11,11 @@ function TodoItem({ todo }) {
                 }}
                 checked={todo.checked}
             />
-            <span style={{ textDecoration: todo.checked ? 'line-through' : 'none' }}>
+            <span
+                style={{
+                    textDecoration: todo.checked ? 'line-through' : 'none',
+                }}
+            >
                 {todo.text}
             </span>
             <button onClick={() => removeTodo(todo.id)}>X</button>

@@ -8,5 +8,5 @@ createRoot(document.getElementById('root')).render(
         <TodoProvider>
             <App />
         </TodoProvider>
-    </StrictMode>,
+    </StrictMode>
 )
